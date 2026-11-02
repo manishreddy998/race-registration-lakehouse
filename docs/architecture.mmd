@@ -1,0 +1,31 @@
+flowchart LR
+  subgraph Sources
+    RDS[(AWS RDS Postgres<br/>events, races, tiers,<br/>participants, registrations,<br/>fundraising)]
+    WH[Payment webhooks<br/>dupes + out of order]
+  end
+  subgraph Bronze["Bronze (raw, append-only)"]
+    B1[rds_* tables]
+    B2[payment_webhooks<br/>raw_payload kept]
+  end
+  subgraph Silver["Silver (clean, typed, PII masked)"]
+    S1[silver_registrations]
+    S2[silver_payment_events<br/>dedup by event id]
+    S3[silver_participants<br/>SHA-256 tokens]
+  end
+  subgraph Gold["Gold (only layer Metabase sees)"]
+    G1[fct_registrations]
+    G2[gold_registration_pace]
+    G3[gold_revenue_monthly]
+    G4[gold_price_tier_performance]
+    G5[gold_event_scorecard]
+    G6[ml_features_race_sellout]
+  end
+  RDS -- dlt incremental merge --> B1
+  WH -- dlt append --> B2
+  B1 --> S1 & S3
+  B2 --> S2
+  S1 & S2 & S3 --> G1
+  G1 --> G2 & G3 & G4 & G5 & G6
+  Q{{Quality gate<br/>DMF metrics +<br/>revenue reconciliation<br/>to the cent}} -.checks.-> G1
+  Gold --> MB[Metabase / Streamlit]
+  G6 --> ML[Sell-out forecast]

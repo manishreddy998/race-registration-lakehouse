@@ -1,0 +1,12 @@
+{
+  "steps_seconds": {
+    "synth": 1.81,
+    "ingest_bronze": 15.05,
+    "dbt_build": 5.22,
+    "quality": 0.36,
+    "finops": 0.72,
+    "forecast": 0.39,
+    "replay": 18.0
+  },
+  "total_seconds": 41.54
+}

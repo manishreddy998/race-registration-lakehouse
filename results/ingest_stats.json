@@ -1,0 +1,17 @@
+{
+  "destination": "duckdb",
+  "load_seconds": 14.32,
+  "bronze_row_counts": {
+    "rds_events": 60,
+    "rds_races": 175,
+    "rds_price_tiers": 525,
+    "rds_participants": 59764,
+    "rds_registrations": 85485,
+    "rds_fundraising_pages": 441,
+    "rds_donations": 4112,
+    "payment_webhooks": 186344
+  },
+  "load_ids": [
+    "1793642916.686387"
+  ]
+}
