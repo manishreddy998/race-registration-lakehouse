@@ -1,0 +1,8 @@
+{
+  "gold_net_cents_before": 666709760,
+  "gold_net_cents_after_replay": 666709760,
+  "bronze_duplicate_deliveries_after_replay": 96659,
+  "silver_duplicates_after_replay": 0,
+  "reconciliation_passed_after_replay": true,
+  "replay_safe": true
+}

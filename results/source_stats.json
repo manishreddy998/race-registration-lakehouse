@@ -1,0 +1,11 @@
+{
+  "events": 60,
+  "races": 175,
+  "price_tiers": 525,
+  "participants": 59764,
+  "registrations": 85485,
+  "fundraising_pages": 441,
+  "donations": 4112,
+  "payment_webhooks": 93172,
+  "duplicate_webhook_deliveries": 3487
+}

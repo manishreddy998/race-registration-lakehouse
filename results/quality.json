@@ -1,0 +1,53 @@
+{
+  "dmf_metrics": [
+    {
+      "table": "bronze.payment_webhooks",
+      "key": "id",
+      "row_count": 186344,
+      "null_count": 0,
+      "duplicate_count": 96659
+    },
+    {
+      "table": "silver.silver_payment_events",
+      "key": "webhook_event_id",
+      "row_count": 89685,
+      "null_count": 0,
+      "duplicate_count": 0
+    },
+    {
+      "table": "silver.silver_registrations",
+      "key": "registration_id",
+      "row_count": 85485,
+      "null_count": 0,
+      "duplicate_count": 0
+    },
+    {
+      "table": "gold.fct_registrations",
+      "key": "registration_id",
+      "row_count": 85485,
+      "null_count": 0,
+      "duplicate_count": 0
+    },
+    {
+      "table": "silver.silver_participants",
+      "key": "participant_id",
+      "row_count": 59764,
+      "null_count": 0,
+      "duplicate_count": 0
+    }
+  ],
+  "revenue_reconciliation": {
+    "events_checked": 60,
+    "events_matched_to_cent": 60,
+    "source_net_revenue_cents": 666709760,
+    "gold_net_revenue_cents": 666709760,
+    "mismatches": {}
+  },
+  "registration_reconciliation": {
+    "source_confirmed": 82964,
+    "gold_confirmed": 82964
+  },
+  "duplicate_webhooks_in_bronze": 96659,
+  "duplicate_webhooks_in_silver": 0,
+  "passed": true
+}

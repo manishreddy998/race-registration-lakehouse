@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "question": "net_revenue_by_month",
+      "raw_ms": 36.51,
+      "gold_ms": 0.31,
+      "raw_rows_scanned": 272004,
+      "gold_rows_scanned": 52,
+      "rows_scanned_reduction_pct": 99.98,
+      "speedup_x": 117.0
+    },
+    {
+      "question": "event_fill_rate",
+      "raw_ms": 21.59,
+      "gold_ms": 0.28,
+      "raw_rows_scanned": 178832,
+      "gold_rows_scanned": 60,
+      "rows_scanned_reduction_pct": 99.97,
+      "speedup_x": 76.5
+    },
+    {
+      "question": "tier_performance",
+      "raw_ms": 34.17,
+      "gold_ms": 0.23,
+      "raw_rows_scanned": 272529,
+      "gold_rows_scanned": 36,
+      "rows_scanned_reduction_pct": 99.99,
+      "speedup_x": 149.5
+    },
+    {
+      "question": "pace_one_race",
+      "raw_ms": 14.81,
+      "gold_ms": 1.27,
+      "raw_rows_scanned": 93602,
+      "gold_rows_scanned": 178,
+      "rows_scanned_reduction_pct": 99.81,
+      "speedup_x": 11.6
+    }
+  ],
+  "total_raw_rows_scanned": 816967,
+  "total_gold_rows_scanned": 326,
+  "total_rows_scanned_reduction_pct": 99.96,
+  "median_speedup_x": 96.75
+}

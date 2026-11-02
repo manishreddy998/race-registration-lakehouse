@@ -1,0 +1,29 @@
+name: ci
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  pipeline-and-gate:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
+      DUCKDB_PATH: data/race_roster.duckdb
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Synthetic sources -> dlt bronze -> dbt silver/gold -> quality gate -> FinOps -> forecast -> replay
+        run: python -m src.run_all
+      - name: Quality and reconciliation gate (fails on any cent of drift)
+        run: python -m src.quality
+      - name: pytest
+        run: pytest -q
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results
+          path: results/*.json
