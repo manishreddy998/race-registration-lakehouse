@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: fct_registrations
+    description: One row per registration, joined to settled payments. Gold layer, exposed to Metabase.
+    columns:
+      - name: registration_id
+        tests: [unique, not_null]
+      - name: tier_name
+        tests:
+          - accepted_values: {arguments: {values: ['Early Bird', 'Regular', 'Late']}}
+      - name: race_id
+        tests:
+          - relationships: {arguments: {to: ref('silver_races'), field: race_id}}
+  - name: gold_event_scorecard
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+  - name: ml_features_race_sellout
+    columns:
+      - name: race_id
+        tests: [unique, not_null]

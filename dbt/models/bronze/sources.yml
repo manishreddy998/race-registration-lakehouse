@@ -1,0 +1,15 @@
+version: 2
+sources:
+  - name: bronze
+    description: Raw data exactly as dlt landed it from AWS RDS and payment webhooks.
+    schema: bronze
+    tables:
+      - name: rds_events
+      - name: rds_races
+      - name: rds_price_tiers
+      - name: rds_participants
+      - name: rds_registrations
+      - name: rds_donations
+      - name: rds_fundraising_pages
+      - name: payment_webhooks
+        description: Append-only. Contains duplicate deliveries and out-of-order events on purpose.

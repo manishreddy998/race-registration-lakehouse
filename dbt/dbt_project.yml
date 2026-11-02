@@ -1,0 +1,19 @@
+name: race_roster_lakehouse
+version: "1.0.0"
+config-version: 2
+profile: race_roster_lakehouse
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+target-path: target
+vars:
+  # Mirrors a Snowflake masking policy: only PII_ADMIN sees raw values.
+  viewer_role: ANALYST
+models:
+  race_roster_lakehouse:
+    silver:
+      +schema: silver
+      +materialized: table
+    gold:
+      +schema: gold
+      +materialized: table
