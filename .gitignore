@@ -1,0 +1,9 @@
+data/
+.dlt_pipelines/
+dbt/target/
+dbt/logs/
+logs/
+__pycache__/
+*.pyc
+.dlt/secrets.toml
+dbt/.user.yml
